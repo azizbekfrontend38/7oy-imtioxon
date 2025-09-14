@@ -1,8 +1,8 @@
-import forkPattern from "../../assets/images/pattern-fork.svg";
-import knifePattern from "../../assets/images/pattern-knife.svg";
-import instagramIcon from "../../assets/images/icon-instagram.svg";
-import blueskyIcon from "../../assets/images/icon-bluesky.svg";
-import tiktokIcon from "../../assets/images/icon-tiktok.svg";
+// import forkPattern from "../../assets/images/pattern-fork.svg";
+// import knifePattern from "../../assets/images/pattern-knife.svg";
+// import instagramIcon from "../../assets/images/icon-instagram.svg";
+// import blueskyIcon from "../../assets/images/icon-bluesky.svg";
+// import tiktokIcon from "../../assets/images/icon-tiktok.svg";
 
 function Footer() {
   return (
@@ -25,12 +25,12 @@ function Footer() {
         >
           {/* Background decorations */}
           <img
-            src={forkPattern}
+            src="./images/pattern-fork.svg"
             alt=""
             className="lg:absolute left-[-80px] top-1/2 -translate-y-1/2 max-lg:hidden"
           />
           <img
-            src={knifePattern}
+            src="/images/pattern-knife.svg"
             alt=""
             className=" lg:absolute right-[-50px] top-1/2 -translate-y-1/2 max-lg:hidden"
           />
@@ -64,9 +64,9 @@ function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-700">Made with ❤️ and 🥑</p>
           <span className="flex gap-6">
-            <img src={instagramIcon} alt="instagram" className="w-6 h-6 cursor-pointer" />
-            <img src={blueskyIcon} alt="bluesky" className="w-6 h-6 cursor-pointer" />
-            <img src={tiktokIcon} alt="tiktok" className="w-6 h-6 cursor-pointer" />
+            <img src="/images/icon-instagram.svg" alt="instagram" className="w-6 h-6 cursor-pointer" />
+            <img src="/images/icon-bluesky.svg" alt="bluesky" className="w-6 h-6 cursor-pointer" />
+            <img src="/images/icon-tiktok.svg" alt="tiktok" className="w-6 h-6 cursor-pointer" />
           </span>
         </div>
       </section>

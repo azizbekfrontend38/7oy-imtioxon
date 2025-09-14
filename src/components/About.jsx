@@ -1,8 +1,8 @@
-import small from "../../assets/images/image-about-our-mission-small.webp";
-import large from "../../assets/images/image-about-our-mission-large.webp";
-import bullet from "../../assets/images/icon-bullet-point.svg";
-import plate from "../../assets/images/image-about-beyond-the-plate-large.webp";
-import beyon from "../../assets/images/image-about-beyond-the-plate-small.webp";
+// import small from "../../assets/images/image-about-our-mission-small.webp";
+// import large from "../../assets/images/image-about-our-mission-large.webp";
+// import bullet from "../../assets/images/icon-bullet-point.svg";
+// import plate from "../../assets/images/image-about-beyond-the-plate-large.webp";
+// import beyon from "../../assets/images/image-about-beyond-the-plate-small.webp";
 
 export default function About() {
   return (
@@ -32,10 +32,10 @@ export default function About() {
 
         {/* Responsive Image */}
         <picture className="flex-1 flex justify-center lg:justify-end">
-          <source media="(max-width: 500px)" srcSet={small} />
+          <source media="(max-width: 500px)" srcSet="/images/image-about-our-mission-small.webp" />
           <img
             className="rounded-xl w-full max-w-md lg:max-w-lg object-cover"
-            src={large}
+            src="/images/image-about-our-mission-large.webp"
             alt="Our mission"
           />
         </picture>
@@ -63,7 +63,7 @@ export default function About() {
             },
           ].map((item, index) => (
             <div key={index} className="flex gap-4">
-              <img src={bullet} alt="" className="w-6 h-6" />
+              <img src="/images/icon-bullet-point.svg" alt="" className="w-6 h-6" />
               <div>
                 <h4 className="font-semibold">{item.title}</h4>
                 <p>{item.text}</p>
@@ -99,7 +99,7 @@ export default function About() {
             },
           ].map((item, index) => (
             <div key={index} className="flex gap-4">
-              <img src={bullet} alt="" className="w-6 h-6" />
+              <img src="/images/icon-bullet-point.svg" alt="" className="w-6 h-6" />
               <div>
                 <h4 className="font-semibold">{item.title}</h4>
                 <p>{item.text}</p>
@@ -130,11 +130,11 @@ export default function About() {
         {/* O‘ng taraf */}
         <div className="lg:w-1/2 flex justify-center lg:justify-end">
           <picture className="w-full max-w-[700px] lg:max-w-[800px]">
-            <source media="(max-width: 500px)" srcSet={beyon} />
+            <source media="(max-width: 500px)" srcSet="/images/image-about-beyond-the-plate-small.webp" />
             <img
               width={844}
               height={400}
-              src={plate}
+              src="/images/image-about-beyond-the-plate-large.webp"
               alt="Beyond the plate"
               className="rounded-xl w-full object-cover"
             />
