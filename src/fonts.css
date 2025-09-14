@@ -1,0 +1,53 @@
+/* Nunito Regular */
+@font-face {
+  font-display: swap;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/nunito-v31-latin-regular.woff2') format('woff2');
+}
+
+/* Nunito Medium */
+@font-face {
+  font-display: swap;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/nunito-v31-latin-500.woff2') format('woff2');
+}
+
+/* Nunito SemiBold */
+@font-face {
+  font-display: swap;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/nunito-v31-latin-600.woff2') format('woff2');
+}
+
+/* Nunito Bold */
+@font-face {
+  font-display: swap;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/nunito-v31-latin-700.woff2') format('woff2');
+}
+
+/* Nunito ExtraBold */
+@font-face {
+  font-display: swap;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  src: url('/fonts/nunito-v31-latin-800.woff2') format('woff2');
+}
+
+/* Nunito Black */
+@font-face {
+  font-display: swap;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 900;
+  src: url('/fonts/nunito-v31-latin-900.woff2') format('woff2');
+}
