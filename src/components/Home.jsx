@@ -1,14 +1,4 @@
-// src/pages/Home.jsx
 
-// import heroSmall from "../images/image-home-hero-small.webp";
-// import heroLarge from "../images/image-home-hero-large.webp";
-// import iconWhole from "../images/icon-whole-food-recipes.svg";
-// import iconFuss from "../images/icon-minimum-fuss.svg";
-// import iconSearch from "../images/icon-search-in-seconds.svg";
-// import lifeSmall from "../images/image-home-real-life-small.webp";
-// import lifeLarge from "../images/image-home-real-life-large.webp";
-
-import Recipes from "../components/Recipes.jsx";
 
 export default function Home() {
   return (
@@ -30,7 +20,7 @@ export default function Home() {
           </button>
         </div>
 
-        {/* HERO SECTION */}
+      
         <section className="mt-8 bg-neutral-0 px-5 py-5 rounded-[15px] mb-[90px]">
           <picture>
             <source media="(max-width: 500px)" srcSet="/images/image-home-hero-small.webp" />
@@ -39,7 +29,7 @@ export default function Home() {
         </section>
       </div>
 
-      {/* WHAT YOU’LL GET */}
+      
       <div className="mb-[90px]">
         <h2 className="text-center mb-[48px] lg:text-2 text-2-mobile font-extrabold text-neutral-900">
           What you’ll get
@@ -87,7 +77,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* BUILT FOR REAL LIFE */}
+      
       <div className="mb-[90px]">
         <div className="flex justify-center items-center max-lg:flex-col">
           <div className="mb-9">

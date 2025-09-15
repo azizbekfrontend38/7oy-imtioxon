@@ -1,15 +1,10 @@
-// import small from "../../assets/images/image-about-our-mission-small.webp";
-// import large from "../../assets/images/image-about-our-mission-large.webp";
-// import bullet from "../../assets/images/icon-bullet-point.svg";
-// import plate from "../../assets/images/image-about-beyond-the-plate-large.webp";
-// import beyon from "../../assets/images/image-about-beyond-the-plate-small.webp";
 
 export default function About() {
   return (
     <div className="container mx-auto px-5 py-10">
-      {/* --- OUR MISSION --- */}
+   
       <div className="container mx-auto max-w-screen-xl flex flex-col lg:flex-row lg:items-start mt-20 px-5 py-5 gap-10 lg:gap-16">
-        {/* Text Content */}
+       
         <div className="flex-1 lg:mt-20">
           <span className="bg-orange-500 rounded-lg px-4 py-2 text-neutral-900 text-sm font-medium">
             Our mission
@@ -30,7 +25,7 @@ export default function About() {
           </p>
         </div>
 
-        {/* Responsive Image */}
+      
         <picture className="flex-1 flex justify-center lg:justify-end">
           <source media="(max-width: 500px)" srcSet="/images/image-about-our-mission-small.webp" />
           <img
@@ -41,7 +36,7 @@ export default function About() {
         </picture>
       </div>
 
-      {/* --- WHY WE EXIST --- */}
+     
       <div className="lg:flex items-start justify-center gap-[64px] mt-[60px] lg:mt-[97px]">
         <h2 className="lg:text-2 text-2-mobile font-extrabold lg:w-[372px]">
           Why we exist
@@ -73,7 +68,7 @@ export default function About() {
         </div>
       </div>
 
-      {/* --- OUR FOOD PHILOSOPHY --- */}
+     
       <div className="lg:flex items-start justify-center gap-[64px] mt-[60px] lg:mt-[97px]">
         <h2 className="lg:text-2 text-2-mobile font-extrabold lg:w-[375px]">
           Our food philosophy
@@ -109,9 +104,9 @@ export default function About() {
         </div>
       </div>
 
-      {/* --- BEYOND THE PLATE --- */}
+     
       <div className="flex flex-col lg:flex-row items-center justify-between text-gray-800 mt-[97px] gap-10 px-6">
-        {/* Chap taraf */}
+    
         <div className="lg:w-1/2 max-w-xl">
           <h2 className="lg:text-2 text-2-mobile font-bold text-green-900 mb-4">
             Beyond the plate
@@ -127,7 +122,7 @@ export default function About() {
           </ul>
         </div>
 
-        {/* O‘ng taraf */}
+       
         <div className="lg:w-1/2 flex justify-center lg:justify-end">
           <picture className="w-full max-w-[700px] lg:max-w-[800px]">
             <source media="(max-width: 500px)" srcSet="/images/image-about-beyond-the-plate-small.webp" />

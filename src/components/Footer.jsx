@@ -1,15 +1,10 @@
-// import forkPattern from "../../assets/images/pattern-fork.svg";
-// import knifePattern from "../../assets/images/pattern-knife.svg";
-// import instagramIcon from "../../assets/images/icon-instagram.svg";
-// import blueskyIcon from "../../assets/images/icon-bluesky.svg";
-// import tiktokIcon from "../../assets/images/icon-tiktok.svg";
 
 function Footer() {
   return (
     <div className="container mx-auto px-4 md:px-8 lg:px-16">
-      {/* CTA Section */}
+  
       <section className="flex flex-col gap-10 my-20">
-        {/* CTA Box with overlay images */}
+       
         <div
           className="
             relative
@@ -23,9 +18,9 @@ function Footer() {
             overflow-hidden
           "
         >
-          {/* Background decorations */}
+      
           <img
-            src="./images/pattern-fork.svg"
+            src="/images/pattern-fork.svg"
             alt=""
             className="lg:absolute left-[-80px] top-1/2 -translate-y-1/2 max-lg:hidden"
           />
@@ -35,7 +30,7 @@ function Footer() {
             className=" lg:absolute right-[-50px] top-1/2 -translate-y-1/2 max-lg:hidden"
           />
 
-          {/* Content */}
+        
           <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-4 relative z-10">
             Ready to cook smarter?
           </h2>
@@ -60,7 +55,7 @@ function Footer() {
           </button>
         </div>
 
-        {/* Footer */}
+        
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-700">Made with ❤️ and 🥑</p>
           <span className="flex gap-6">

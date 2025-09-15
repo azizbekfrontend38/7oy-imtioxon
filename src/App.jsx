@@ -1,31 +1,35 @@
-import { createBrowserRouter,RouterProvider } from "react-router-dom"
-import MainLayout from "./lyaout/MainLayout"
-import Home from "./components/Home"
-import About from "./components/About"
-import Recipes from "./components/Recipes"
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import MainLayout from "./lyaout/MainLayout";
+import Home from "./components/Home";
+import About from "./components/About";
+import Recipes from "./components/Recipes";
+import RecipesMore from "./components/RecipesMore";
 
 export default function App() {
-
-  const routers=createBrowserRouter([
+  const routers = createBrowserRouter([
     {
-      path:"/",
-      element:<MainLayout/>,
-      children:[
+      path: "/",
+      element: <MainLayout />,
+      children: [
         {
-          index:true,
-          element:<Home/>
-        },
-        
-        {
-          path:"/about",
-          element:<About/>
+          index: true,
+          element: <Home />,
         },
         {
-          path:"/recipes",
-          element:<Recipes/>
+          path: "about",
+          element: <About />,
+        },
+        {
+          path: "recipes",
+          element: <Recipes />,
+        },
+        {
+          path: "more/:id",   // 🔥 dinamik route qo‘shildi
+          element: <RecipesMore />,
         },
       ],
-    }
-  ])
-  return <RouterProvider router={routers}/>
+    },
+  ]);
+
+  return <RouterProvider router={routers} />;
 }
