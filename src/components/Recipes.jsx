@@ -54,11 +54,12 @@ const Recipes = () => {
       </div>
 
       {/* Filters */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10">
-        <div className="flex gap-4 w-full sm:w-auto">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
+        {/* Selectlar + Clear */}
+        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
           <select
             value={maxPrep}
-            className="border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-600"
+            className="border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-600 w-full sm:w-auto"
             onChange={(e) => setMaxPrep(e.target.value)}
           >
             <option value="">Max Prep Time</option>
@@ -69,7 +70,7 @@ const Recipes = () => {
 
           <select
             value={maxCook}
-            className="border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-600"
+            className="border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-600 w-full sm:w-auto"
             onChange={(e) => setMaxCook(e.target.value)}
           >
             <option value="">Max Cook Time</option>
@@ -77,14 +78,16 @@ const Recipes = () => {
             <option value="20">20 mins</option>
             <option value="30">30 mins</option>
           </select>
+
           <button
             onClick={handleClear}
-            className="bg-gray-200 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition"
+            className="bg-gray-200 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition w-full sm:w-auto"
           >
             Clear
           </button>
         </div>
 
+        {/* Search */}
         <input
           type="text"
           placeholder="Search by name or ingredient..."
@@ -116,7 +119,11 @@ const Recipes = () => {
                   srcSet={recipe.image?.small?.replace("./", "/")}
                 />
                 <img
-                  src={recipe.image?.large?.replace("./", "/")}
+                  src={
+                    recipe.image?.small?.replace("./", "/") ||
+                    recipe.image?.medium?.replace("./", "/") ||
+                    recipe.image?.large?.replace("./", "/")
+                  }
                   alt={recipe.title}
                   className="w-full object-cover p-2 rounded-2xl"
                 />
@@ -126,7 +133,9 @@ const Recipes = () => {
                 <h2 className="text-lg font-semibold text-gray-800 mb-2">
                   {recipe.title}
                 </h2>
-                <p className="text-sm text-gray-600 mb-4 line-clamp-2">{recipe.overview}</p>
+                <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                  {recipe.overview}
+                </p>
 
                 <div className="flex flex-wrap gap-6 text-sm text-gray-700 mb-5">
                   <span className="flex items-center gap-1">
@@ -143,14 +152,12 @@ const Recipes = () => {
                   </span>
                 </div>
 
-                {/* Tugma sifatida NavLink */}
                 <NavLink
                   to={`/more/${recipe.id}`}
-                  className="mt-auto w-full bg-neutral-900 text-white py-2.5 rounded-full font-medium transition-colors  text-center"
+                  className="mt-auto w-full bg-neutral-900 text-white py-2.5 rounded-full font-medium transition-colors text-center"
                 >
                   View Recipe
                 </NavLink>
-                
               </div>
             </div>
           ))
