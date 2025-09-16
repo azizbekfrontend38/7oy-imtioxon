@@ -102,6 +102,13 @@ function Footer() {
               alt="tiktok"
               className="w-6 h-6 cursor-pointer"
             />
+           <a href="https://github.com/azizbekfrontend38">
+              <img
+              src="/images/GitHub-Icon.svg"
+              alt="GitHub"
+              className="w-6 h-6 cursor-pointer rounded-2xl"
+            />
+           </a>
           </span>
         </motion.div>
       </motion.section>

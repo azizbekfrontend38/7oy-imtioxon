@@ -9,7 +9,7 @@ export default function Navbar() {
   const active = "border-b-2 border-orange-400";
 
   return (
-    <div className="border-b pb-[26px] border-black/15">
+    <div className="border-b pb-[26px] border-black/15 fixed top-0 left-0 right-0 bg-neutral-100">
       <div className="container mx-auto mt-[25px] pl-2 pr-2">
         <div className="flex items-center justify-between">
           {/* Logo */}
