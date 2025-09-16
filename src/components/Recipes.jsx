@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion"; // 👈 qo'shildi
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
@@ -44,17 +45,27 @@ const Recipes = () => {
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
       {/* Title */}
-      <div className="text-center mb-12 max-w-md mx-auto">
+      <motion.div
+        className="text-center mb-12 max-w-md mx-auto"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <h1 className="text-2xl sm:text-3xl font-extrabold text-green-900 mb-4">
           Explore our simple, healthy recipes
         </h1>
         <p className="text-base text-gray-600">
           Discover quick, whole-food dishes that fit real-life schedules and taste amazing.
         </p>
-      </div>
+      </motion.div>
 
       {/* Filters */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
+      <motion.div
+        className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.4 }}
+      >
         {/* Selectlar + Clear */}
         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
           <select
@@ -95,75 +106,88 @@ const Recipes = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-      </div>
+      </motion.div>
 
       {/* Recipes List */}
       <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-3">
-        {filteredRecipes.length > 0 ? (
-          filteredRecipes.map((recipe) => (
-            <div
-              key={recipe.id}
-              className="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-300 flex flex-col"
-            >
-              <picture>
-                <source
-                  media="(min-width:1024px)"
-                  srcSet={recipe.image?.large?.replace("./", "/")}
-                />
-                <source
-                  media="(min-width:640px)"
-                  srcSet={recipe.image?.medium?.replace("./", "/")}
-                />
-                <source
-                  media="(max-width:639px)"
-                  srcSet={recipe.image?.small?.replace("./", "/")}
-                />
-                <img
-                  src={
-                    recipe.image?.small?.replace("./", "/") ||
-                    recipe.image?.medium?.replace("./", "/") ||
-                    recipe.image?.large?.replace("./", "/")
-                  }
-                  alt={recipe.title}
-                  className="w-full object-cover p-2 rounded-2xl"
-                />
-              </picture>
+        <AnimatePresence>
+          {filteredRecipes.length > 0 ? (
+            filteredRecipes.map((recipe) => (
+              <motion.div
+                key={recipe.id}
+                className="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-300 flex flex-col"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.4 }}
+              >
+                <picture>
+                  <source
+                    media="(min-width:1024px)"
+                    srcSet={recipe.image?.large?.replace("./", "/")}
+                  />
+                  <source
+                    media="(min-width:640px)"
+                    srcSet={recipe.image?.medium?.replace("./", "/")}
+                  />
+                  <source
+                    media="(max-width:639px)"
+                    srcSet={recipe.image?.small?.replace("./", "/")}
+                  />
+                  <img
+                    src={
+                      recipe.image?.small?.replace("./", "/") ||
+                      recipe.image?.medium?.replace("./", "/") ||
+                      recipe.image?.large?.replace("./", "/")
+                    }
+                    alt={recipe.title}
+                    className="w-full object-cover p-2 rounded-2xl"
+                  />
+                </picture>
 
-              <div className="p-6 flex flex-col flex-grow">
-                <h2 className="text-lg font-semibold text-gray-800 mb-2">
-                  {recipe.title}
-                </h2>
-                <p className="text-sm text-gray-600 mb-4 line-clamp-2">
-                  {recipe.overview}
-                </p>
+                <div className="p-6 flex flex-col flex-grow">
+                  <h2 className="text-lg font-semibold text-gray-800 mb-2">
+                    {recipe.title}
+                  </h2>
+                  <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                    {recipe.overview}
+                  </p>
 
-                <div className="flex flex-wrap gap-6 text-sm text-gray-700 mb-5">
-                  <span className="flex items-center gap-1">
-                    <img src="/images/icon-servings.svg" alt="" />
-                    Servings: {recipe.servings}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <img src="/images/icon-prep-time.svg" alt="" />
-                    Prep: {recipe.prepMinutes} mins
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <img src="/images/icon-cook-time.svg" alt="" />
-                    Cook: {recipe.cookMinutes} mins
-                  </span>
+                  <div className="flex flex-wrap gap-6 text-sm text-gray-700 mb-5">
+                    <span className="flex items-center gap-1">
+                      <img src="/images/icon-servings.svg" alt="" />
+                      Servings: {recipe.servings}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <img src="/images/icon-prep-time.svg" alt="" />
+                      Prep: {recipe.prepMinutes} mins
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <img src="/images/icon-cook-time.svg" alt="" />
+                      Cook: {recipe.cookMinutes} mins
+                    </span>
+                  </div>
+
+                  <NavLink
+                    to={`/more/${recipe.id}`}
+                    className="mt-auto w-full bg-neutral-900 text-white py-2.5 rounded-full font-medium transition-colors text-center"
+                  >
+                    View Recipe
+                  </NavLink>
                 </div>
-
-                <NavLink
-                  to={`/more/${recipe.id}`}
-                  className="mt-auto w-full bg-neutral-900 text-white py-2.5 rounded-full font-medium transition-colors text-center"
-                >
-                  View Recipe
-                </NavLink>
-              </div>
-            </div>
-          ))
-        ) : (
-          <p className="text-center text-gray-500 col-span-full">No recipes found.</p>
-        )}
+              </motion.div>
+            ))
+          ) : (
+            <motion.p
+              key="noRecipes"
+              className="text-center text-gray-500 col-span-full"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
+              No recipes found.
+            </motion.p>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );

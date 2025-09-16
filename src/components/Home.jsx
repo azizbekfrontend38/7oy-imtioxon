@@ -1,10 +1,15 @@
-
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <div className="container mx-auto mt-[80px] px-5 font-nunito">
       <div className="lg:text-center">
-        <div>
+        {/* Hero text */}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <h1 className="lg:text-1 md:text-1-tablet text-1-mobile font-extrabold leading-[110%] mb-[12px]">
             <span className="relative inline-block">
               Healthy
@@ -15,75 +20,88 @@ export default function Home() {
           <p className="text-6 font-medium text-neutral-800">
             Discover eight quick, whole-food recipes that you can cook tonight—no processed junk, no guesswork.
           </p>
-          <button className="mt-[40px] bg-neutral-900 text-neutral-0 px-6 py-3 rounded-lg font-bold">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            className="mt-[40px] bg-neutral-900 text-neutral-0 px-6 py-3 rounded-lg font-bold"
+          >
             Start exploring
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
 
-      
-        <section className="mt-8 bg-neutral-0 px-5 py-5 rounded-[15px] mb-[90px]">
+        {/* Hero image */}
+        <motion.section
+          className="mt-8 bg-neutral-0 px-5 py-5 rounded-[15px] mb-[90px]"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           <picture>
             <source media="(max-width: 500px)" srcSet="/images/image-home-hero-small.webp" />
             <img src="/images/image-home-hero-large.webp" alt="hero" className="w-full object-cover rounded-[15px]" />
           </picture>
-        </section>
+        </motion.section>
       </div>
 
-      
-      <div className="mb-[90px]">
+      {/* Cards */}
+      <motion.div
+        className="mb-[90px]"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.15 } }
+        }}
+      >
         <h2 className="text-center mb-[48px] lg:text-2 text-2-mobile font-extrabold text-neutral-900">
           What you’ll get
         </h2>
         <div className="grid lg:grid-cols-3 max-md:grid-cols-1">
-          <div className="mb-[32px]">
-            <img
-              className="bg-neutral-0 px-[18px] py-[13px] rounded-[12px] mb-[24px]"
-              src="/images/icon-whole-food-recipes.svg"
-              alt="Whole food icon"
-            />
-            <h4 className="text-3 font-bold text-neutral-900 lg:mb-[12px]">
-              Whole-food recipes
-            </h4>
-            <p className="text-6 font-medium text-neutral-800">
-              Each dish uses everyday, unprocessed ingredients.
-            </p>
-          </div>
-          <div className="lg:ml-[32px] mb-[32px]">
-            <img
-              className="bg-neutral-0 px-[10px] py-[9px] rounded-[12px] mb-[24px]"
-              src="/images/icon-minimum-fuss.svg"
-              alt="Minimum fuss icon"
-            />
-            <h4 className="text-3 font-bold text-neutral-900 lg:mb-[12px]">
-              Minimum fuss
-            </h4>
-            <p className="text-6 font-medium text-neutral-800">
-              All recipes are designed to make eating healthy quick and easy.
-            </p>
-          </div>
-          <div className="lg:ml-[32px] mb-[32px]">
-            <img
-              className="bg-neutral-0 px-[10px] py-[10px] rounded-[12px] mb-[24px]"
-              src="/images/icon-search-in-seconds.svg"
-              alt="Search icon"
-            />
-            <h4 className="text-3 font-bold text-neutral-900 lg:mb-[12px]">
-              Search in seconds
-            </h4>
-            <p className="text-6 font-medium text-neutral-800">
-              Filter by name or ingredient and jump straight to the recipe you need.
-            </p>
-          </div>
+          {[
+            {
+              img: "/images/icon-whole-food-recipes.svg",
+              title: "Whole-food recipes",
+              text: "Each dish uses everyday, unprocessed ingredients."
+            },
+            {
+              img: "/images/icon-minimum-fuss.svg",
+              title: "Minimum fuss",
+              text: "All recipes are designed to make eating healthy quick and easy."
+            },
+            {
+              img: "/images/icon-search-in-seconds.svg",
+              title: "Search in seconds",
+              text: "Filter by name or ingredient and jump straight to the recipe you need."
+            }
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              className={`mb-[32px] ${i > 0 ? "lg:ml-[32px]" : ""}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+            >
+              <img
+                className="bg-neutral-0 px-[18px] py-[13px] rounded-[12px] mb-[24px]"
+                src={item.img}
+                alt={item.title}
+              />
+              <h4 className="text-3 font-bold text-neutral-900 lg:mb-[12px]">{item.title}</h4>
+              <p className="text-6 font-medium text-neutral-800">{item.text}</p>
+            </motion.div>
+          ))}
         </div>
-      </div>
+      </motion.div>
 
-      
-      <div className="mb-[90px]">
+      {/* Built for real life */}
+      <motion.div
+        className="mb-[90px]"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+      >
         <div className="flex justify-center items-center max-lg:flex-col">
           <div className="mb-9">
-            <h3 className="lg:text-2 text-2-mobile font-extrabold">
-              Built for real life
-            </h3>
+            <h3 className="lg:text-2 text-2-mobile font-extrabold">Built for real life</h3>
             <p className="text-6 font-medium mb-[20px]">
               Cooking shouldn’t be complicated. These recipes come in under{" "}
               <span className="relative inline-block">
@@ -96,14 +114,21 @@ export default function Home() {
               Whether you’re new to the kitchen or just need fresh ideas, we’ve got you covered.
             </p>
           </div>
-          <picture className="lg:flex gap-[45px]">
+          <motion.picture
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="lg:flex gap-[45px]"
+          >
             <source media="(max-width: 500px)" srcSet="/images/image-home-real-life-small.webp" />
-            <img className="rounded-[20px] w-full object-cover" src="/images/image-home-real-life-large.webp" alt="real life" />
-          </picture>
+            <img
+              className="rounded-[20px] w-full object-cover"
+              src="/images/image-home-real-life-large.webp"
+              alt="real life"
+            />
+          </motion.picture>
         </div>
-      </div>
-
-     
+      </motion.div>
     </div>
   );
 }
